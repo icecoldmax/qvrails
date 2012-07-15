@@ -1,0 +1,12 @@
+<h1>QuizVids</h1>
+
+<div id="layer1">
+	<div id="ytplayer"></div>
+</div>
+
+
+<% if @quiz_options %>
+	<p><%= @quiz_options %></p>
+	<p><%= @videos %></p>
+	<%= javascript_tag "var vids = '#{@videos.join(',')}';" %>
+<% end %>

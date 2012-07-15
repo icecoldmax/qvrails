@@ -1,6 +1,93 @@
-<h1>QuizVids</h1>
-<p>Below this is where the youtube player should go</p>
+<div id="quizOptions">
+	<h3>Quiz Options</h3>
 
-<div id="layer1">
-	<div id="ytplayer"></div>
-</div>
+	<%= form_tag("/quiz", method: 'get') do %>
+		<%= fields_for :add do |add_options| %>
+			<%= add_options.check_box :on %>
+			<%= label_tag(:add_start, "Addition from") %>
+			<%= add_options.text_field :start %>
+			<%= label_tag(:add_end, "to") %>
+			<%= add_options.text_field :end %>
+		<% end %>
+
+<br />
+
+		<%= fields_for :sub do |sub_options| %>
+			<%= sub_options.check_box :on %>
+			<%= label_tag(:sub_start, "Subtraction from") %>
+			<%= sub_options.text_field :start %>
+			<%= label_tag(:sub_end, "to") %>
+			<%= sub_options.text_field :end %>
+		<% end %>
+
+<br />
+<div id="playlist">
+		<h3>Playlist</h3>
+		<p>Use the search bar below to find videos to add!</p>
+
+		<ul></ul>
+		
+	</div>
+		<%= submit_tag("Start Quiz") %>
+	<% end %>
+
+	<h3>Videos Search</h3>
+	<div id="searchBar">
+		<form>
+			<input type="text" id="searchInput" placeholder="Search..." /><input id="searchSubmit" type="button" value="Search" />
+		</form>
+	</div>
+
+	<div id="searchResults"></div>
+	
+
+<!-- 
+		<table>
+			<tr id="addition">
+				<th>Addition from</th>
+				<td><input type="text" id="quizAdditionStart" name="quizAdditionStart" value="0" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizAdditionEnd" name="quizAdditionEnd" value="20" size="10"></td>
+				<td><input class="quizTypeCheckbox" type="checkbox" id="quizAdditionCheckbox" name="quizAdditionCheckbox" checked></td>
+			</tr>
+
+			<tr id="subtraction">
+				<th>Subtraction from</th>
+				<td><input type="text" id="quizSubtractionStart" name="quizSubtractionStart" value="0" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizSubtractionEnd" name="quizSubtractionEnd" value="20" size="10"></td>
+				<td><input class="quizTypeCheckbox" type="checkbox" id="quizSubtractionCheckbox" name="quizSubtractionCheckbox"></td>
+			</tr>
+
+			<tr id="multiplication">
+				<th>Multiplication from</th>
+				<td><input type="text" id="quizMultiplicationStart" name="quizMultiplicationStart" value="1" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizMultiplicationEnd" name="quizMultiplicationEnd" value="12" size="10"></td>
+				<td><input class="quizTypeCheckbox" type="checkbox" id="quizMultiplicationCheckbox" name="quizMultiplicationCheckbox"></td>
+			</tr>
+
+			<tr id="division1">
+				<th>Division of numbers from</th>
+				<td><input type="text" id="quizDivisionStart" name="quizDivisionStart" value="1" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizDivisionEnd" name="quizDivisionEnd" value="100" size="10"></td>
+			</tr>
+			<tr id="division2">
+				<th>... by numbers from</th>
+				<td><input type="text" id="quizDivByStart" name="quizDivByStart" value="1" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizDivByEnd" name="quizDivByEnd" value="12" size="10"></td>
+				<td><input class="quizTypeCheckbox" type="checkbox" id="quizDivisionCheckbox" name="quizDivisionCheckbox"></td>
+			</tr>
+			<tr id="counting">
+				<th>Counting from</th>
+				<td><input type="text" id="quizCountingStart" name="quizCountingStart" value="1" size="10"></td>
+				<td>to</td>
+				<td><input type="text" id="quizCountingEnd" name="quizCountingEnd" value="10" size="10"></td>
+				<td><input class="quizTypeCheckbox" type="checkbox" id="quizCountingCheckbox" name="quizCountingCheckbox"></td>
+			</tr>
+		</table>
+ -->
+<!--  
+<%= link_to "Do Quiz", quiz_path %> -->

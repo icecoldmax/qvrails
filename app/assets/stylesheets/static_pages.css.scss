@@ -5,3 +5,19 @@
 html, body {
 	text-align: center;
 }
+
+ul.videos li {
+	display: inline-block;
+ 	/*float: left;*/
+ 	width: 10em;
+ 	margin-bottom: 1em;
+ 	cursor: pointer;
+
+}
+ul.videos, #playlist ul
+{
+  margin-bottom: 1em;
+  padding-left : 0em;
+  margin-left: 0em;
+  list-style: none;
+}

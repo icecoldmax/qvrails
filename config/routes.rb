@@ -1,6 +1,6 @@
 Qv::Application.routes.draw do
   get "static_pages/home"
-
+  match 'quiz' => 'quiz#index', :as => :quiz
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

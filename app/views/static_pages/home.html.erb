@@ -1,13 +1,15 @@
+<%= javascript_tag "current_page = 'home';" %>
+
 <div id="quizOptions">
 	<h3>Quiz Options</h3>
 
-	<%= form_tag("/quiz", method: 'get') do %>
+<!--	<%= form_tag("/quiz", method: 'get') do %>
 		<%= fields_for :add do |add_options| %>
-			<%= add_options.check_box :on %>
+			<%= add_options.check_box :on, {checked: 'checked'} %>
 			<%= label_tag(:add_start, "Addition from") %>
-			<%= add_options.text_field :start %>
+			<%= add_options.text_field :start, { value: '1' } %>
 			<%= label_tag(:add_end, "to") %>
-			<%= add_options.text_field :end %>
+			<%= add_options.text_field :end, { value: '10' } %>
 		<% end %>
 
 <br />
@@ -15,34 +17,27 @@
 		<%= fields_for :sub do |sub_options| %>
 			<%= sub_options.check_box :on %>
 			<%= label_tag(:sub_start, "Subtraction from") %>
-			<%= sub_options.text_field :start %>
+			<%= sub_options.text_field :start, {value: '1'} %>
 			<%= label_tag(:sub_end, "to") %>
-			<%= sub_options.text_field :end %>
+			<%= sub_options.text_field :end, { value: '10' } %>
 		<% end %>
 
 <br />
-<div id="playlist">
-		<h3>Playlist</h3>
-		<p>Use the search bar below to find videos to add!</p>
-
-		<ul></ul>
 		
-	</div>
+
+		<%= label_tag(:interval, "Question interval") %>
+		<%= text_field_tag(:interval, "5") %>
 		<%= submit_tag("Start Quiz") %>
 	<% end %>
+-->
 
-	<h3>Videos Search</h3>
-	<div id="searchBar">
-		<form>
-			<input type="text" id="searchInput" placeholder="Search..." /><input id="searchSubmit" type="button" value="Search" />
-		</form>
-	</div>
-
-	<div id="searchResults"></div>
 	
 
-<!-- 
-		<table>
+
+	
+	
+
+	<table>
 			<tr id="addition">
 				<th>Addition from</th>
 				<td><input type="text" id="quizAdditionStart" name="quizAdditionStart" value="0" size="10"></td>
@@ -88,6 +83,24 @@
 				<td><input class="quizTypeCheckbox" type="checkbox" id="quizCountingCheckbox" name="quizCountingCheckbox"></td>
 			</tr>
 		</table>
- -->
+		<p>Interval: <input type="text" id="interval" name="interval" value="30"> seconds</p>
+		<input type="submit" id="quizFormSubmit" name="quizFormSubmit" value="Start!" />
+
+
+<div id="playlist">
+	<h3>Playlist</h3>
+	<p>Use the search bar below to find videos to add!</p>
+
+	<ul></ul>
+		
+</div>
+
+<h3>Videos Search</h3>
+<div id="searchBar">
+	<form>
+		<input type="text" id="searchInput" placeholder="Search..." /><input id="searchSubmit" type="button" value="Search" />
+	</form>
+</div>
+<div id="searchResults"></div>
 <!--  
 <%= link_to "Do Quiz", quiz_path %> -->

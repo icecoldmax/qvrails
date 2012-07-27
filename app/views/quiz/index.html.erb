@@ -1,12 +1,93 @@
-<h1>QuizVids</h1>
+<%= javascript_tag "current_page = 'quiz';
+											
+											var t; // setInterval variable
+											var interval; // interval in seconds
+											var quizOptions = {}; // what kinds of quiz questions will appear
+
+											var questionTypes = []; // types of questions in this quiz
+											var quizAnswerSpans; // all the spans in the quiz answer table
+											//var answerPositions = [0,1,2,3]; // answers can go in quizAnswerSpans[0], [1], [2], [3]
+
+											var uqna = {}; // all the user quiz info (questions and answers)
+											var uqYetToAskQs = {};
+											var thisQuestion;
+
+											var vids = []; // video playlist
+											var vidCount; // number of videos in playlist
+
+											var layer1Width; // width of div#layer1 (surrounding the iframe)
+
+											var loc = window.location;
+
+											var quizImgs = ['balloon', 'froggy', 'redcar', 'sailboat','strawberry'];
+											var quizImgsLength = quizImgs.length;
+											var correctAnswer; // correct answer to the quiz question
+
+											var clickCount = 0; // number of times clicked on the answers
+											var totalQsAsked = 0; // how many times has a question popped up?
+											var totalCorrectAns = 0; // how many did the user get right first time?
+											var qNumber = 1;
+
+											" %>
+
+<!-- var vids = '#{@videos.join(',')}';
+interval = '#{params[:interval]}';
+questionTypes = '#{@question_types.join(',')}';
+ -->
+ <h1>QuizVids</h1>
 
 <div id="layer1">
 	<div id="ytplayer"></div>
 </div>
 
+<div id="vidInfo">
+		Player State: <span id="playerState"></span><br />
+		Duration: <span id="videoDuration"></span><br />
+		Current Time: <span id="videoCurrentTime"></span><br />
+		Total Bytes: <span id="bytesTotal"></span><br />
+		Bytes Loaded: <span id="bytesLoaded"></span><br />
+		Volume: <span id="volume"></span><br />
+		Interval: <span id="interval">Interval</span><br />
+</div>
 
 <% if @quiz_options %>
 	<p><%= @quiz_options %></p>
 	<p><%= @videos %></p>
-	<%= javascript_tag "var vids = '#{@videos.join(',')}';" %>
+	<p><%= @question_types %></p>
+
 <% end %>
+
+<div class="jqmWindow" id="popup">
+	<h1>Quiz time!</h1>
+	<p id="qNumber">Question <span></span></p>
+
+	<h2 id="quizH2"></h2>
+	<p id="score">Score: <span id="totalCorrectAns">0</span> / <span id="totalQsAsked">0</span> <span id="scorePercentage">(0%)</span></p>
+	<p id="lastTimeCorrect" style="display: none;">You answered this question <span id="lastTimeCorrectStatus">correctly</span> last time!</p>
+
+	<div id="quizContent">
+
+		<div id="countingImgs"></div>
+
+		
+		<table id="quizAnswerTable">
+			<tr>
+				<td><span class="quizAnswerSpan"></span></td>
+				<td><span class="quizAnswerSpan"></span></td>
+			</tr>
+			<tr>
+				<td><span class="quizAnswerSpan"></span></td>
+				<td><span class="quizAnswerSpan"></span></td>
+			</tr>
+		</table>
+		<p class="quizResult"></p>
+		<p id="qzTitle"></p>
+	</div>
+
+	<!-- <form id="quizAnswerForm">
+		<p><input type="text" id="quizAnswer" placeholder="Type here..."></p>
+		<p class="quizResult"></p>
+		<p><input type="submit" id="quizAnswerSubmit" value="Go!" /></p>
+	</form> -->
+
+</div>

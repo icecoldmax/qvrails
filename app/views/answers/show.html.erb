@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @answer.question_id %>
+</p>
+
+<p>
+  <b>Is correct:</b>
+  <%= @answer.is_correct %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @answer.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path(question_id: @question.id) %>
+
+<br />
+<%= link_to 'All Quizzes', quizzes_path %> |
+<%= link_to 'All Questions', questions_path %> |
+<%= link_to 'All Answers', answers_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @quiz.title %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @quiz.creator %>
+</p>
+
+<p>
+  <b>Question count:</b>
+  <%= @quiz.questions.count %>
+</p>
+
+<h3>Questions</h3>
+
+<%= render @questions %>
+
+<%= link_to 'Edit questions', questions_path(quiz_id: @quiz.id) %> |
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>
+
+<br />
+<%= link_to 'All Quizzes', quizzes_path %> |
+<%= link_to 'All Questions', questions_path %> |
+<%= link_to 'All Answers', answers_path %>

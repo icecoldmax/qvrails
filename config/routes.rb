@@ -1,6 +1,15 @@
 Qv::Application.routes.draw do
+  
+  resources :quizzes
+
+  resources :answers
+
+  resources :questions
+    
+  resources :answers
+  
   get "static_pages/home"
-  match 'quiz' => 'quiz#index', :as => :quiz
+  match 'doquiz' => 'static_pages#doquiz', :as => :doquiz
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,10 @@
+<h1>New answer</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', answers_path(question_id: @answer.question_id) %>
+
+<br />
+<%= link_to 'All Quizzes', quizzes_path %> |
+<%= link_to 'All Questions', questions_path %> |
+<%= link_to 'All Answers', answers_path %>

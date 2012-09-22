@@ -1,0 +1,11 @@
+<h1>Editing question</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', question_path(@question) %> |
+<%= link_to 'Back', questions_path(quiz_id: @question.quiz_id) %>
+
+<br />
+<%= link_to 'All Quizzes', quizzes_path %> |
+<%= link_to 'All Questions', questions_path %> |
+<%= link_to 'All Answers', answers_path %>

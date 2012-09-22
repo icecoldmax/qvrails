@@ -1,0 +1,29 @@
+<%= form_for(@quiz) do |f| %>
+  <% if @quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+      <% @quiz.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :creator %><br />
+    <%= f.text_field :creator %>
+  </div>
+  <!-- <div class="field">
+    <%= f.label :question_count %><br />
+    <%= f.number_field :question_count %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -56,6 +56,8 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
+        # @quiz.question_count += 1
+
         format.html { redirect_to questions_url(params[:quiz_id]), notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
@@ -89,6 +91,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @quiz = Quiz.find_by_id(@question.quiz_id)
     @question.destroy
+
 
     respond_to do |format|
       format.html { redirect_to questions_path(quiz_id: @quiz.id) }

@@ -32,51 +32,65 @@
 -->
 
 	<table>
-			<tr id="addition">
-				<th>Addition from</th>
-				<td><input type="text" id="quizAdditionStart" name="quizAdditionStart" value="0" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizAdditionEnd" name="quizAdditionEnd" value="20" size="10"></td>
-				<td><input class="quizTypeCheckbox" type="checkbox" id="quizAdditionCheckbox" name="quizAdditionCheckbox" checked></td>
-			</tr>
+		<tr id="addition">
+			<th>Addition from</th>
+			<td><input type="text" id="quizAdditionStart" name="quizAdditionStart" value="0" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizAdditionEnd" name="quizAdditionEnd" value="20" size="10"></td>
+			<td><input class="quizTypeCheckbox" type="checkbox" id="quizAdditionCheckbox" name="quizAdditionCheckbox" checked></td>
+		</tr>
 
-			<tr id="subtraction">
-				<th>Subtraction from</th>
-				<td><input type="text" id="quizSubtractionStart" name="quizSubtractionStart" value="0" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizSubtractionEnd" name="quizSubtractionEnd" value="20" size="10"></td>
-				<td><input class="quizTypeCheckbox" type="checkbox" id="quizSubtractionCheckbox" name="quizSubtractionCheckbox"></td>
-			</tr>
+		<tr id="subtraction">
+			<th>Subtraction from</th>
+			<td><input type="text" id="quizSubtractionStart" name="quizSubtractionStart" value="0" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizSubtractionEnd" name="quizSubtractionEnd" value="20" size="10"></td>
+			<td><input class="quizTypeCheckbox" type="checkbox" id="quizSubtractionCheckbox" name="quizSubtractionCheckbox"></td>
+		</tr>
 
-			<tr id="multiplication">
-				<th>Multiplication from</th>
-				<td><input type="text" id="quizMultiplicationStart" name="quizMultiplicationStart" value="1" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizMultiplicationEnd" name="quizMultiplicationEnd" value="12" size="10"></td>
-				<td><input class="quizTypeCheckbox" type="checkbox" id="quizMultiplicationCheckbox" name="quizMultiplicationCheckbox"></td>
-			</tr>
+		<tr id="multiplication">
+			<th>Multiplication from</th>
+			<td><input type="text" id="quizMultiplicationStart" name="quizMultiplicationStart" value="1" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizMultiplicationEnd" name="quizMultiplicationEnd" value="12" size="10"></td>
+			<td><input class="quizTypeCheckbox" type="checkbox" id="quizMultiplicationCheckbox" name="quizMultiplicationCheckbox"></td>
+		</tr>
 
-			<tr id="division1">
-				<th>Division of numbers from</th>
-				<td><input type="text" id="quizDivisionStart" name="quizDivisionStart" value="1" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizDivisionEnd" name="quizDivisionEnd" value="100" size="10"></td>
+		<tr id="division1">
+			<th>Division of numbers from</th>
+			<td><input type="text" id="quizDivisionStart" name="quizDivisionStart" value="1" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizDivisionEnd" name="quizDivisionEnd" value="100" size="10"></td>
+		</tr>
+		<tr id="division2">
+			<th>... by numbers from</th>
+			<td><input type="text" id="quizDivByStart" name="quizDivByStart" value="1" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizDivByEnd" name="quizDivByEnd" value="12" size="10"></td>
+			<td><input class="quizTypeCheckbox" type="checkbox" id="quizDivisionCheckbox" name="quizDivisionCheckbox"></td>
+		</tr>
+		<tr id="counting">
+			<th>Counting from</th>
+			<td><input type="text" id="quizCountingStart" name="quizCountingStart" value="1" size="10"></td>
+			<td>to</td>
+			<td><input type="text" id="quizCountingEnd" name="quizCountingEnd" value="10" size="10"></td>
+			<td><input class="quizTypeCheckbox" type="checkbox" id="quizCountingCheckbox" name="quizCountingCheckbox"></td>
+		</tr>
+	</table>
+<br />
+	<div id="userQuizzes">
+		<h3>User Quizzes</h3>
+		<table>
+			<tr>
+				<th>Title</th><th>Creator</th><th>Questions</th>
 			</tr>
-			<tr id="division2">
-				<th>... by numbers from</th>
-				<td><input type="text" id="quizDivByStart" name="quizDivByStart" value="1" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizDivByEnd" name="quizDivByEnd" value="12" size="10"></td>
-				<td><input class="quizTypeCheckbox" type="checkbox" id="quizDivisionCheckbox" name="quizDivisionCheckbox"></td>
-			</tr>
-			<tr id="counting">
-				<th>Counting from</th>
-				<td><input type="text" id="quizCountingStart" name="quizCountingStart" value="1" size="10"></td>
-				<td>to</td>
-				<td><input type="text" id="quizCountingEnd" name="quizCountingEnd" value="10" size="10"></td>
-				<td><input class="quizTypeCheckbox" type="checkbox" id="quizCountingCheckbox" name="quizCountingCheckbox"></td>
+			<%= render @quizzes %>
+				
 			</tr>
 		</table>
+	</div>
+	<br />
+	
 		<p>Interval: <input type="text" id="interval" name="interval" value="5"> seconds</p>
 		<input type="submit" id="quizFormSubmit" name="quizFormSubmit" value="Start!" />
 

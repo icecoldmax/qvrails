@@ -272,7 +272,26 @@ function prepQuiz() {
   if (quizOptions.multi == "on") questionTypes.push("multi");
   if (quizOptions.div == "on") questionTypes.push("div");
   if (quizOptions.counting == "on") questionTypes.push("counting");
+  if (quizOptions.uq == "on") questionTypes.push("uq");
 
+
+  for (var i = 0; i < quizOptions.uqIds.length; i++) {
+    var quiz_id = quizOptions.uqIds[i];
+    
+    uqYetToAskQs[quiz_id] = [];
+    
+    var qCount = Object.size(uqna[quiz_id]);
+
+    for (var j = 0; j < qCount; j++) {
+      uqYetToAskQs[quiz_id].push(j);
+    }
+
+    for (quiz in uqYetToAskQs) {
+      uqYetToAskQs[quiz].sort(function() {return 0.5 - Math.random()} ); 
+    }
+
+
+  }
 }
 
 function getOptions() {
@@ -533,7 +552,7 @@ function showQuiz() {
     var whichQuizRand = Math.floor((Math.random() * (quizCount))); // choose one at random
     var thisQuiz = quizOptions.uqIds[whichQuizRand];
     
-    var questionCount = uqna[thisQuiz].length; // how many questions in this quiz?
+    var questionCount = Object.size(uqna[thisQuiz]); // how many questions in this quiz?
     
   /* if all the questions have been asked already, uqYetToAskQs[thisQuiz] will be empty.
     So, we have to repopulate it and re-randomise it

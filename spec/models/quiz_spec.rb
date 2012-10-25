@@ -2,12 +2,11 @@
 #
 # Table name: quizzes
 #
-#  id             :integer         not null, primary key
-#  title          :string(255)
-#  creator        :string(255)
-#  question_count :integer
-#  created_at     :datetime        not null
-#  updated_at     :datetime        not null
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  creator    :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
 #
 
 require 'spec_helper'

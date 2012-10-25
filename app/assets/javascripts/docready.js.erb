@@ -122,14 +122,14 @@ $(document).ready(function() {
 	
 		if (clickedAnswer == correctAnswer || parseInt(clickedAnswer) == correctAnswer) {
 			if (clickCount == 1) {
-				//thisQuestion.lastTimeCorrect = true;
+				thisQuestion.lastTimeCorrect = true;
 				totalCorrectAns++; // add 1 to score
 				
 			} else if (clickCount > 1) {
-				// thisQuestion.lastTimeCorrect = false;
+				thisQuestion.lastTimeCorrect = false;
 			}
 
-			// console.log("lastTimeCorrect: " + thisQuestion.lastTimeCorrect);
+			console.log("lastTimeCorrect: " + thisQuestion.lastTimeCorrect);
 
 			$('.quizResult').text("Correct!!");
 			$('#popup').css({"background-color": "lightgreen"});
